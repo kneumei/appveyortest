@@ -3,7 +3,8 @@
   only:
    - master
  version: 1.0.{build}
- build: off
+ build_script:
+  - ps: Write-HOST "BUILD IT! $env:APPVEYOR_BUILD_VERSION"
  test: off
  deploy_script:
   on:
