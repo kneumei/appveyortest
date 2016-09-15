@@ -1,5 +1,5 @@
 
-version: 2.8.{build}
+version: 2.9.{build}
 init:
 - ps: $shortHash= $env:APPVEYOR_REPO_COMMIT.substring(0, 7);
 - ps: $branchName = [System.Text.RegularExpressions.Regex]::Replace($env:APPVEYOR_REPO_BRANCH,"[^1-9a-zA-Z_]","");
