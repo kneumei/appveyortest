@@ -8,4 +8,4 @@
  deploy_script:
   on:
     appveyor_repo_tag: true 
- - ps: Write-HOST "DEPLOY IT!"
+ - ps: Write-HOST "DEPLOY IT! $env:APPVEYOR_BUILD_VERSION"
