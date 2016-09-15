@@ -6,12 +6,5 @@
  build_script:
   - ps: Write-HOST "BUILD IT! " + $env:APPVEYOR_BUILD_VERSION
  test: off
- artifacts:
-  - path: appveyor.yml
-    name: npkg
- 
- deploy: 
-  - provider: Script
-    ps: Write-Host "DEPLOY"
-    on: 
-     appveyor_repo_tag: false
+ deploy_script:
+  - ps: if($env_APPVEYOR_REPO_TAG) Write-HOST "DEPLOY IT! " + $env:APPVEYOR_BUILD_VERSION
