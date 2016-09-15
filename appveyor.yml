@@ -3,6 +3,7 @@ version: 2.9.{build}
 init:
 - ps: $shortHash= $env:APPVEYOR_REPO_COMMIT.substring(0, 7);
 - ps: $branchName = [System.Text.RegularExpressions.Regex]::Replace($env:APPVEYOR_REPO_BRANCH,"[^1-9a-zA-Z_]","");
+- ps: if ( $branchName -gt 20){ $branchName = $branchName.substring(0,20) }
 - ps: $env:nugetVersion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$branchName" }
 - ps: $env:dotNetVersion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$branchName+$shortHash" }
 - ps: Update-AppveyorBuild -Version $env:dotNetVersion
