@@ -1,10 +1,10 @@
--
- branches:
-  only:
-   - master
- version: 1.0.{build}
- build_script:
-  - ps: Write-HOST "BUILD IT! " + $env:APPVEYOR_BUILD_VERSION
- test: off
- deploy_script:
-  - ps: if($env:APPVEYOR_REPO_TAG -eq $true){ Write-HOST "DEPLOY IT! "  $env:APPVEYOR_BUILD_VERSION}
+
+version: 2.9.{build}
+init:
+- ps: $env:cenugetversion = if ($env:APPVEYOR_REPO_TAG -eq $True) { "$env:APPVEYOR_BUILD_VERSION" } else { "$env:APPVEYOR_BUILD_VERSION-$($env:APPVEYOR_REPO_BRANCH -Replace '/','-')" }
+- ps: Update-AppveyorBuild -Version $env:cenugetversion
+build_script:
+ - ps: Write-HOST "BUILD IT! " + $env:APPVEYOR_BUILD_VERSION
+test: off
+deploy_script:
+ - ps: if($env:APPVEYOR_REPO_TAG -eq $true){ Write-HOST "DEPLOY IT! "  $env:APPVEYOR_BUILD_VERSION}
