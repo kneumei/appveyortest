@@ -7,4 +7,4 @@
   - ps: Write-HOST "BUILD IT! " + $env:APPVEYOR_BUILD_VERSION
  test: off
  deploy_script:
-  - ps: if($env_APPVEYOR_REPO_TAG) Write-HOST "DEPLOY IT! " + $env:APPVEYOR_BUILD_VERSION
+  - ps: if($env:APPVEYOR_REPO_TAG) Write-HOST "DEPLOY IT! " + $env:APPVEYOR_BUILD_VERSION
