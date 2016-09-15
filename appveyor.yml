@@ -13,5 +13,3 @@
  deploy: 
   - provider: Script
     ps: Write-Host "DEPLOY"
-    on: 
-     appveyor_repo_tag: true
