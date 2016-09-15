@@ -1,5 +1,11 @@
-version: 1.0.{build}
-build: off
-test: off
-deploy_script:
-- ps: Write-HOST "DEPLOY IT!"
+-
+ branches:
+  only:
+   - master
+ version: 1.0.{build}
+ build: off
+ test: off
+ deploy_script:
+  on:
+    appveyor_repo_tag: true 
+ - ps: Write-HOST "DEPLOY IT!"
