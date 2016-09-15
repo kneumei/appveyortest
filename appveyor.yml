@@ -8,8 +8,8 @@ init:
 - ps: Update-AppveyorBuild -Version $env:dotNetVersion
 build_script:
  - ps: Write-HOST "BUILD IT! " 
- - ps: WRITE-HOST "nuget ver: " $env:nugetVersion
- - ps: WRITE-HOST "dotnet ver: " $env:dotNetVersion
+ - ps: WRITE-HOST "nuget ver " $env:nugetVersion
+ - ps: WRITE-HOST "dotnet ver " $env:dotNetVersion
 test: off
 deploy_script:
  - ps: if($env:APPVEYOR_REPO_TAG -eq $true){ Write-HOST "DEPLOY IT! "  $env:APPVEYOR_BUILD_VERSION}
